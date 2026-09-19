@@ -169,11 +169,11 @@
 }
 
 /* Breakpoints: cards per view (fraction = peek) */
-@media (width >= 600px) {
+@media (min-width : 600px) {
   .explore-careers-carousel { --ecc-per-view: 2.2; }
 }
 
-@media (width >= 900px) {
+@media (min-width : 900px) {
   .explore-careers-carousel {
     --ecc-per-view: 3.2;
     --ecc-gap: 20px;
@@ -191,7 +191,7 @@
   }
 }
 
-@media (width >= 1200px) {
+@media (min-width : 1200px) {
   .explore-careers-carousel { --ecc-per-view: 3.85; }
 }
 
