@@ -405,5 +405,11 @@
       "button",
       "title"
     ]
+  },
+  {
+    "id": "explore-careers-carousel",
+    "components": [
+      "explore-careers-card"
+    ]
   }
 ]

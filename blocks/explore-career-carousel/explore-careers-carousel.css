@@ -1,0 +1,201 @@
+/* Explore Careers Carousel – Modular
+   Swap the token values below for the exact Figma values. */
+.explore-careers-carousel {
+  --ecc-bg: #f4f5f7;
+  --ecc-card-bg: #fff;
+  --ecc-ink: #1b1f2a;
+  --ecc-muted: #3c4250;
+  --ecc-salary: #3446c2;
+  --ecc-accent: #20a6a0;
+  --ecc-dot: #c9ccd3;
+  --ecc-radius: 10px;
+  --ecc-gap: 16px;
+  --ecc-per-view: 1.15; /* mobile: 1 card + peek */
+
+  position: relative;
+  padding: 40px 0 24px;
+  background: var(--ecc-bg);
+}
+
+.explore-careers-carousel .ecc-heading {
+  margin: 0 16px 28px;
+  text-align: center;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ecc-ink);
+}
+
+/* Track */
+.explore-careers-carousel .ecc-track {
+  display: flex;
+  gap: var(--ecc-gap);
+  margin: 0;
+  padding: 4px 16px 12px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.explore-careers-carousel .ecc-track::-webkit-scrollbar { display: none; }
+
+.explore-careers-carousel .ecc-track:focus-visible {
+  outline: 2px solid var(--ecc-accent);
+  outline-offset: 2px;
+}
+
+/* Card */
+.explore-careers-carousel .ecc-card {
+  flex: 0 0 calc((100% - 32px - var(--ecc-gap) * (var(--ecc-per-view) - 1)) / var(--ecc-per-view));
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background: var(--ecc-card-bg);
+  border-radius: var(--ecc-radius);
+  box-shadow: 0 1px 3px rgb(20 24 35 / 8%);
+  scroll-snap-align: start;
+}
+
+.explore-careers-carousel .ecc-card-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: calc(var(--ecc-radius) - 2px);
+}
+
+.explore-careers-carousel .ecc-card-media picture,
+.explore-careers-carousel .ecc-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.explore-careers-carousel .ecc-card-body { padding: 16px 12px 12px; }
+
+.explore-careers-carousel .ecc-card-title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ecc-ink);
+}
+
+.explore-careers-carousel .ecc-card-salary {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ecc-salary);
+}
+
+.explore-careers-carousel .ecc-card-desc p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ecc-muted);
+}
+
+/* Pagination */
+.explore-careers-carousel .ecc-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.explore-careers-carousel .ecc-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explore-careers-carousel .ecc-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ecc-dot);
+  cursor: pointer;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.explore-careers-carousel .ecc-dot.active {
+  width: 48px;
+  background: var(--ecc-accent);
+}
+
+.explore-careers-carousel .ecc-arrow {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ecc-ink);
+  cursor: pointer;
+}
+
+.explore-careers-carousel .ecc-arrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+  transform: rotate(45deg);
+}
+
+.explore-careers-carousel .ecc-prev::before { transform: rotate(-135deg); }
+
+.explore-careers-carousel .ecc-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.explore-careers-carousel .ecc-dot:focus-visible,
+.explore-careers-carousel .ecc-arrow:focus-visible {
+  outline: 2px solid var(--ecc-accent);
+  outline-offset: 3px;
+}
+
+/* Breakpoints: cards per view (fraction = peek) */
+@media (width >= 600px) {
+  .explore-careers-carousel { --ecc-per-view: 2.2; }
+}
+
+@media (width >= 900px) {
+  .explore-careers-carousel {
+    --ecc-per-view: 3.2;
+    --ecc-gap: 20px;
+
+    padding-top: 56px;
+  }
+
+  .explore-careers-carousel .ecc-track {
+    padding-inline: 32px;
+    scroll-padding-inline: 32px;
+  }
+
+  .explore-careers-carousel .ecc-card {
+    flex-basis: calc((100% - 64px - var(--ecc-gap) * (var(--ecc-per-view) - 1)) / var(--ecc-per-view));
+  }
+}
+
+@media (width >= 1200px) {
+  .explore-careers-carousel { --ecc-per-view: 3.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explore-careers-carousel .ecc-track { scroll-behavior: auto; }
+  .explore-careers-carousel .ecc-dot { transition: none; }
+}

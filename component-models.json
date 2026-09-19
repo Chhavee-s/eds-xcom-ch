@@ -382,6 +382,56 @@
     ]
   },
   {
+    "id": "explore-careers-carousel",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Section heading",
+        "description": "Optional. Shown centered above the cards."
+      }
+    ]
+  },
+  {
+    "id": "explore-careers-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image alt text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Career title",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "salary",
+        "label": "Salary estimate",
+        "description": "e.g. Est. $45K to $65K/yr*"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
